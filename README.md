@@ -31,7 +31,7 @@ transaction_categorizer/
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── context_builder.py            # Builds structured prompts
-│   │   ├── llm_wrapper.py                # Gemini API integration (REST-based)
+│   │   ├── llm_wrapper.py                # Groq API integration (Llama 3.1 8B)
 │   │   └── response_parser.py            # Parses and validates LLM output
 │   └── sample_data/
 │       ├── __init__.py
@@ -43,7 +43,7 @@ transaction_categorizer/
 
 ✅ **Complete REST API** - POST /api/categorize/ endpoint  
 ✅ **Input Validation** - Full serializer validation with helpful error messages  
-✅ **LLM Integration** - Gemini 2.5 Flash model via REST API (no SDK conflicts)  
+✅ **LLM Integration** - Groq API with Llama 3.1 8B model for fast inference  
 ✅ **Smart Prompt Building** - Contextual prompts with few-shot learning  
 ✅ **Robust Response Parsing** - JSON extraction with fallback handling  
 ✅ **Comprehensive Logging** - All operations logged to logs/categorization.log  
@@ -140,7 +140,7 @@ curl -X POST http://localhost:8000/api/categorize/ \
 ## 🔐 Configuration
 
 The .env file contains:
-- `GEMINI_API_KEY` - Google Generative AI API key (working and tested)
+- `GROQ_API_KEY` - Groq API key (free tier available at console.groq.com)
 - `DEBUG` - Django debug mode
 - `SECRET_KEY` - Django secret key
 - `ALLOWED_HOSTS` - Allowed hostnames
@@ -149,7 +149,7 @@ The .env file contains:
 
 ✅ All files created with complete working code  
 ✅ requirements.txt has all dependencies (Python 3.14 compatible)  
-✅ .env.example has GEMINI_API_KEY placeholder  
+✅ .env.example has GROQ_API_KEY placeholder  
 ✅ API returns valid JSON for both success and error cases  
 ✅ 5 sample transactions documented with expected outputs  
 ✅ README is complete with setup, usage, and troubleshooting  
@@ -162,13 +162,11 @@ The .env file contains:
 
 ## 🌐 Available Models
 
-The API key grants access to:
-- gemini-2.5-flash (currently used - latest, optimized)
-- gemini-2.5-pro
-- gemini-2.0-flash
-- gemini-2.0-flash-001
-- gemini-2.0-flash-lite
-- gemini-2.5-flash-lite
+Groq provides access to:
+- llama-3.1-8b-instant (currently used - fastest, efficient)
+- llama-3.1-70b
+- mixtral-8x7b-32768
+- gemma-7b-it
 
 ## 📚 Sample Transactions Included
 

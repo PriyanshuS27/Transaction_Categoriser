@@ -16,7 +16,7 @@ class ContextBuilder:
     Builds a structured prompt context for the LLM based on transaction inputs.
     
     This class takes transaction data, historical examples, and account categories,
-    then formats them into a well-structured prompt for the Gemini API.
+    then formats them into a well-structured prompt for the Groq API.
     """
 
     @staticmethod
